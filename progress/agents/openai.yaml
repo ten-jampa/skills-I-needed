@@ -1,0 +1,4 @@
+interface:
+  display_name: "Progress Logger"
+  short_description: "Append verified entries to PROGRESS.md"
+  default_prompt: "Use  to append a verified entry to PROGRESS.md."
