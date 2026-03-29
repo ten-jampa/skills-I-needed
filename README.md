@@ -16,7 +16,7 @@ curl -sSL https://raw.githubusercontent.com/ten-jampa/skills-I-needed/main/insta
 curl -sSL https://raw.githubusercontent.com/ten-jampa/skills-I-needed/main/install.sh | bash -s -- code-distiller karpathy-guidelines
 ```
 
-Skills are installed to `~/.claude/skills/`.
+Skills are installed to `~/.agents/skills/` (canonical) with symlinks in `~/.claude/skills/`, making them available to all coding agents in one shot.
 
 ## Skills
 
