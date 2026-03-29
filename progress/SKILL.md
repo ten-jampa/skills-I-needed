@@ -22,6 +22,7 @@ description: "Log completed work to PROGRESS.md with timestamps and verification
 **Status**: ✅ Complete / ⚠️ Failed → Fixed / 🔄 In Progress
 **Changes**: List of files modified and what changed (1 line each)
 **Verification**: Concrete proof it works (test output, command result, metric)
+**Context edges**: what specific contexts leads from the last progress 'edge' to this 'edge'
 **Notes**: Any gotchas, learnings, or decisions made (optional)
 ```
 
