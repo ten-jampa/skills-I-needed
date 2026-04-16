@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Distiller"
+  short_description: "Extract a feature into one minimal file"
+  default_prompt: "Use $code-distiller to distill this feature into one minimal, annotated file."

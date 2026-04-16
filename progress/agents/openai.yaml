@@ -1,4 +1,4 @@
 interface:
   display_name: "Progress Logger"
   short_description: "Append verified entries to PROGRESS.md"
-  default_prompt: "Use  to append a verified entry to PROGRESS.md."
+  default_prompt: "Use $progress to append a verified work entry to PROGRESS.md."

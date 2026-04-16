@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Filter"
+  short_description: "Stress-test project ideas before building"
+  default_prompt: "Use $build-filter to evaluate this project idea and return a go/no-go verdict."

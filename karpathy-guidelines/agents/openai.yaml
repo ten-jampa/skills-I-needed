@@ -1,0 +1,4 @@
+interface:
+  display_name: "Karpathy Guidelines"
+  short_description: "Apply pragmatic guardrails to coding tasks"
+  default_prompt: "Use $karpathy-guidelines while implementing this change to keep it simple and verifiable."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unified Standup"
+  short_description: "Generate daily standups from session history"
+  default_prompt: "Use $unified-standup to produce today's unified standup from local activity."

@@ -4,6 +4,7 @@ set -euo pipefail
 REPO="https://github.com/ten-jampa/skills-I-needed.git"
 AGENTS_DIR="${AGENTS_SKILLS_DIR:-$HOME/.agents/skills}"
 CLAUDE_DIR="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}"
+CODEX_DIR="${CODEX_SKILLS_DIR:-$HOME/.codex/skills}"
 TMP_DIR=$(mktemp -d)
 
 cleanup() { rm -rf "$TMP_DIR"; }
@@ -26,13 +27,14 @@ else
   INSTALL=("${REQUESTED[@]}")
 fi
 
-mkdir -p "$AGENTS_DIR" "$CLAUDE_DIR"
+mkdir -p "$AGENTS_DIR" "$CLAUDE_DIR" "$CODEX_DIR"
 
 installed=0
 for skill in "${INSTALL[@]}"; do
   src="$TMP_DIR/repo/$skill"
   agents_dest="$AGENTS_DIR/$skill"
   claude_dest="$CLAUDE_DIR/$skill"
+  codex_dest="$CODEX_DIR/$skill"
 
   if [ ! -f "$src/SKILL.md" ]; then
     echo "⚠️  Skill '$skill' not found in repo. Available: ${AVAILABLE[*]}"
@@ -57,6 +59,14 @@ for skill in "${INSTALL[@]}"; do
   fi
   ln -s "$agents_dest" "$claude_dest"
 
+  # Symlink from ~/.codex/skills if not already pointing there
+  if [ -L "$codex_dest" ]; then
+    rm "$codex_dest"
+  elif [ -d "$codex_dest" ]; then
+    rm -rf "$codex_dest"
+  fi
+  ln -s "$agents_dest" "$codex_dest"
+
   installed=$((installed + 1))
 done
 
@@ -64,5 +74,6 @@ echo ""
 echo "✅ Installed $installed skill(s)"
 echo "   📂 $AGENTS_DIR (canonical)"
 echo "   🔗 $CLAUDE_DIR (symlinked)"
+echo "   🔗 $CODEX_DIR (symlinked)"
 echo ""
 echo "Available skills: ${AVAILABLE[*]}"

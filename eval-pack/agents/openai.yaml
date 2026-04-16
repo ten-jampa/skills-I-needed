@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evaluation Pack"
+  short_description: "Generate visual proof-of-work HTML packs"
+  default_prompt: "Use $eval-pack to create an evidence-based eval_pack.html for this completed task."

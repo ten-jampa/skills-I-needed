@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Worktrees"
+  short_description: "Set up and manage isolated git worktrees"
+  default_prompt: "Use $using-git-worktrees to create and set up a new isolated worktree for this task."

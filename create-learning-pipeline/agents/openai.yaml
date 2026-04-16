@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Learning Pipeline"
+  short_description: "Generate Obsidian learning pipelines fast"
+  default_prompt: "Use $create-learning-pipeline to build a complete learning pipeline for this domain."
