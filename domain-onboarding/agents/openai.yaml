@@ -1,0 +1,4 @@
+interface:
+  display_name: "Domain Onboarding (SEPA)"
+  short_description: "Interactively learn any domain via Structure → Enumeration → Process → Axiology"
+  default_prompt: "Use $domain-onboarding to build a structured mental model of this domain."

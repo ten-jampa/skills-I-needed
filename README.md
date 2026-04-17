@@ -25,6 +25,7 @@ Skills are installed to `~/.agents/skills/` (canonical) with symlinks in both `~
 | `build-filter` | Run project ideas through 7 go/no-go gates before building |
 | `code-distiller` | Collapse any complex feature into one minimal, annotated, self-contained file |
 | `create-learning-pipeline` | Generate complete Obsidian-native learning pipelines for any domain |
+| `domain-onboarding` | Interactively learn any domain via the SEPA method (Structure → Enumeration → Process → Axiology) |
 | `eval-pack` | Build a self-contained HTML proof-of-work pack for quick review |
 | `karpathy-guidelines` | Behavioral guidelines to reduce common LLM coding mistakes |
 | `progress` | Log completed work to PROGRESS.md with timestamps and verification |
