@@ -1,0 +1,4 @@
+interface:
+  display_name: "ML Paper Writing"
+  short_description: "Structure and polish ML papers"
+  default_prompt: "Use $ml-paper-writing to outline and tighten this machine learning paper draft."
