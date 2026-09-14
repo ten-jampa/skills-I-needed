@@ -27,6 +27,7 @@ Skills are installed to `~/.agents/skills/` (canonical) with symlinks in both `~
 | `create-learning-pipeline` | Generate complete Obsidian-native learning pipelines for any domain |
 | `domain-onboarding` | Interactively learn any domain via the SEPA method (Structure → Enumeration → Process → Axiology) |
 | `eval-pack` | Build a self-contained HTML proof-of-work pack for quick review |
+| `experiment-driven-development` | Validate load-bearing beliefs with the cheapest real check before building on them |
 | `karpathy-guidelines` | Behavioral guidelines to reduce common LLM coding mistakes |
 | `ml-paper-writing` | Draft, structure, revise, and tighten machine learning papers and paper outlines |
 | `progress` | Log completed work to PROGRESS.md with timestamps and verification |

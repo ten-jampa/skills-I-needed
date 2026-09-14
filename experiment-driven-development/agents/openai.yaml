@@ -1,0 +1,4 @@
+interface:
+  display_name: "Experiment-Driven Development"
+  short_description: "Validate beliefs with cheap real checks before building on them"
+  default_prompt: "Use $experiment-driven-development to test the assumptions this plan rests on before I build on them."
