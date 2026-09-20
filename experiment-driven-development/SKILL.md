@@ -34,6 +34,62 @@ reading is the only point where knowledge of the actual goal enters the loop. Th
 
 **Test at most 3 per decision.** The cap is the guard against analysis paralysis.
 
+## Phase 1.5 — System-1 triage gate (advisory only, local Laya)
+
+The gate suggests. You decide. It never auto-passes or auto-fails a belief.
+Run one belief per call — three beliefs in one state blur it (measured: type conf 0.03).
+
+### Frozen questions (do not reword without a new batch run)
+
+```python
+QUESTIONS = {
+    "claim_type": {
+        "type": "choice",
+        "instructions": "What kind of claim is `observation` plus `question`?",
+        "criteria": {
+            "factual": "settled by opening one file, reading one path, or timing one load",
+            "statistical": "one case cannot settle it; needs counts across many varied cases",
+            "comparative": "needs head-to-head counts on the same cases",
+            "thesis": "needs known ground-truth cases",
+        },
+    },
+    "run_check": {
+        "type": "noul",
+        "instructions": "Should we run one cheap local check now to settle `question`?",
+        "criteria": {
+            "true": "yes: run one cheap local check; it costs seconds and writes nothing",
+            "false": "no: evidence is already in hand and trusted",
+        },
+    },
+}
+```
+
+Any System-1 model with Choice/Score/Noul works here (hosted Jev or local Laya).
+Evidence below is from local Laya (`laya.load("aac6fef/laya-mlx")`, Apple Silicon):
+a 12-case batch moved type agreement 6/12 → 10/12 and check agreement 7/12 → 8/12
+across five controlled runs (three word-tweaks, one state rewrite).
+
+### State rule (states beat words)
+
+- Facts, not conclusions. Name the path, file, or number to open.
+- Never "may hold" / "may support". Hedged states read as thesis (measured: factual 0/4).
+- The falsifier lives in `EXPERIMENTS.md`, written before running. Never inside the
+  state — the same claim flipped run_check 0.07 → 0.86 when falsifier text entered it.
+
+### Trust lines (ask human, do not decide)
+
+- `claim_type` confidence below 0.30 → ask human. Reword state, re-run.
+- `run_check` inside 0.40–0.60 → ask human regardless of side. Boundary is not a decision.
+- Noul confidence is `max(p, 1-p)` with floor 0.5. Never rank it next to Choice
+  confidence (which is `1 - entropy/log(k)`).
+- A score is not proof. Code validates the pick, executes, re-observes fresh state.
+
+### Rewording rule
+
+One line per experiment. Same twelve states. Re-run all twelve. Compare counts.
+Criterion lines compete for mass: strengthening one steals from neighbours
+(measured: statistical fixed 0/3 → 2/3 while factual broke 2/4 → 0/4).
+
 ## Phase 2 — Pick the experiment shape from the claim type
 
 The check must touch reality, and its result must be stated in a form that could have come out the
